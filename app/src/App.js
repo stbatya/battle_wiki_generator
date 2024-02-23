@@ -18,8 +18,11 @@ function App() {
     side2FlagUrl: null,
     commanders1: 'Gustavus Adolphus',
     commanders2: 'Albre t von Wallenstein',
-    strength: '12,800 infantry 6,200 cavalry 60 guns',
-    casualties: '3,400 dead and 1,600 wounded or missing'
+    strength1: '12,800 infantry; 6,200 cavalry; 43 guns',
+    casualties1: '3,400 dead and 1,600 wounded or missing',
+    strength2: '17,800 infantry; 5,200 cavalry; 60 guns',
+    casualties2: '6,000 dead and 1,700 wounded or missing'
+
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);

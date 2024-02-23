@@ -1,4 +1,17 @@
 import React from 'react';
+
+function MultilineData({ data }) {
+    return (
+      <>
+        {data.split(';').map((line, index) => (
+          <React.Fragment key={index}>
+            {line}
+            <br />
+          </React.Fragment>
+        ))}
+      </>
+    );
+  }
 function BattleTable({battleData}) {
 
     return (
@@ -39,33 +52,37 @@ function BattleTable({battleData}) {
             <tr>
               <td style={{width: '50%', borderRight: '1px dotted #aaa'}}>
                 {battleData.side1FlagUrl && <img src={battleData.side1FlagUrl} width="23" height="15" />}
-                {battleData.side1}
+                <MultilineData data={battleData.side1} />
               </td>
               <td style={{width: '50%', paddingLeft: '0.25em'}}>
                 {battleData.side2FlagUrl && <img src={battleData.side2FlagUrl} width="23" height="15" />}
-                {battleData.side2}
+                <MultilineData data={battleData.side2} />
               </td>
             </tr>
             <tr>
               <th colSpan="2" style={{backgroundColor: '#C3D6EF', textAlign: 'center', verticalAlign: 'middle', fontSize: '110%'}}>Commanders and leaders</th>
             </tr>
             <tr>
-              <td style={{width: '50%', borderRight: '1px dotted #aaa'}}>{battleData.commanders1}</td>
-              <td style={{width: '50%', paddingLeft: '0.25em'}}>{battleData.commanders2}</td>
+              <td style={{width: '50%', borderRight: '1px dotted #aaa'}}>
+              <MultilineData data={battleData.commanders1} />
+              </td>
+              <td style={{width: '50%', borderRight: '1px dotted #aaa'}}>
+              <MultilineData data={battleData.commanders2} />
+              </td>
             </tr>
             <tr>
               <th colSpan="2" style={{backgroundColor: '#C3D6EF', textAlign: 'center', verticalAlign: 'middle', fontSize: '110%'}}>Strength</th>
             </tr>
             <tr>
-            <td style={{width: '50%', borderRight: '1px dotted #aaa'}}>{battleData.strength}</td>
-            <td style={{width: '50%', paddingLeft: '0.25em'}}>{battleData.strength}</td>
+            <td style={{width: '50%', borderRight: '1px dotted #aaa'}}> <MultilineData data={battleData.strength1} /></td>
+            <td style={{width: '50%', paddingLeft: '0.25em'}}><MultilineData data={battleData.strength2} /></td>
             </tr>
             <tr>
               <th colSpan="2" style={{backgroundColor: '#C3D6EF', textAlign: 'center', verticalAlign: 'middle', fontSize: '110%'}}>Casualties and losses</th>
             </tr>
             <tr>
-              <td style={{width: '50%', borderRight: '1px dotted #aaa'}}>{battleData.casualties}</td>
-              <td style={{width: '50%', paddingLeft: '0.25em'}}>{battleData.casualties}</td>
+              <td style={{width: '50%', borderRight: '1px dotted #aaa'}}><MultilineData data={battleData.casualties1} /></td>
+              <td style={{width: '50%', paddingLeft: '0.25em'}}><MultilineData data={battleData.casualties2} /></td>
             </tr>
           </tbody>
         </table>

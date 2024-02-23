@@ -12,8 +12,10 @@ function Form({ onSubmit, battleData }) {
   const side2FlagUrlRef = useRef();
   const commanders1Ref = useRef();
   const commanders2Ref = useRef();
-  const strengthRef = useRef();
-  const casualtiesRef = useRef();
+  const strength1Ref = useRef();
+  const strength2Ref = useRef();
+  const casualties1Ref = useRef();
+  const casualties2Ref = useRef();
 
   
   const handleSubmit = (event) => {
@@ -30,8 +32,10 @@ function Form({ onSubmit, battleData }) {
       side2FlagUrl : side2FlagUrlRef? side2FlagUrlRef.current.value: null,
       commanders1: commanders1Ref.current.value,
       commanders2: commanders2Ref.current.value,
-      strength: strengthRef.current.value,
-      casualties: casualtiesRef.current.value
+      strength1: strength1Ref.current.value,
+      strength2: strength2Ref.current.value,
+      casualties1: casualties1Ref.current.value,
+      casualties2: casualties2Ref.current.value,
     };
     onSubmit(formData);
   };
@@ -67,32 +71,39 @@ function Form({ onSubmit, battleData }) {
         <div className="form-row">
           <label htmlFor="side1">Belligerent Side 1:</label>
           <input ref={side1FlagUrlRef} id="side1FlagUrl" placeholder='Flag URL'/>
-          <input ref={side1Ref} id="side1" defaultValue={battleData.side1} placeholder='Side 1'/>
+          <input ref={side1Ref} id="side1" defaultValue={battleData.side1} placeholder='Side 1' title="Use ';' as the separator for multiline content"/>
         </div>
 
         <div className="form-row">
           <label htmlFor="side2">Belligerent Side 2:</label>
           <input ref={side2FlagUrlRef} id="side1FlagUrl" placeholder='Flag URL'/>
-          <input ref={side2Ref} id="side2" defaultValue={battleData.side2} placeholder='Side 2'/>
+          <input ref={side2Ref} id="side2" defaultValue={battleData.side2} placeholder='Side 2' title="Use ';' as the separator for multiline content"/>
         </div>
 
         <div className="form-row">
           <label htmlFor="commanders1">Commanders and Leaders Side 1:</label>
-          <input ref={commanders1Ref} id="commanders1" defaultValue={battleData.commanders1}/>
+          <input ref={commanders1Ref} id="commanders1" defaultValue={battleData.commanders1} title="Use ';' as the separator for multiline content"/>
         </div>
 
         <div className="form-row">
           <label htmlFor="commanders2">Commanders and Leaders Side 2:</label>
-          <input ref={commanders2Ref} id="commanders2" defaultValue={battleData.commanders2} />
+          <input ref={commanders2Ref} id="commanders2" defaultValue={battleData.commanders2} title="Use ';' as the separator for multiline content" />
         </div>
         <div class="form-row">
-          <label for="strength">Strength:</label>
-          <input ref={strengthRef} type="text" id="strength" defaultValue={battleData.strength} />
+          <label for="strength">Strength Side1 :</label>
+          <input ref={strength1Ref} type="text" id="strength" defaultValue={battleData.strength1} title="Use ';' as the separator for multiline content"/>
         </div>
-
         <div class="form-row">
-          <label for="casualties">Casualties and Losses:</label>
-          <input ref={casualtiesRef} type="text" id="casualties" defaultValue={battleData.casualties}/ >
+          <label for="strength">Strength Side 2:</label>
+          <input ref={strength2Ref} type="text" id="strength" defaultValue={battleData.strength2} title="Use ';' as the separator for multiline content"/>
+        </div>
+        <div class="form-row">
+          <label for="casualties">Casualties and Losses Side 1:</label>
+          <input ref={casualties1Ref} type="text" id="casualties" defaultValue={battleData.casualties1} title="Use ';' as the separator for multiline content"/ >
+        </div>
+        <div class="form-row">
+          <label for="casualties">Casualties and Losses Side 2:</label>
+          <input ref={casualties2Ref} type="text" id="casualties" defaultValue={battleData.casualties2} title="Use ';' as the separator for multiline content"/ >
         </div>
         <button type="submit">Generate</button>
       </form>

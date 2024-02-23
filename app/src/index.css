@@ -76,6 +76,11 @@ button:hover {
   line-height: 1.5em;
 }
 
+.infobox td {
+  vertical-align: top;
+}
+
+
 .center-container {
   display: flex;
   align-items: center;
